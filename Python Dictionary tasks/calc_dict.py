@@ -15,10 +15,10 @@ def divide(a, b):
 
 def calculator():
     operations = {
-        1: ("Addition", add),
-        2: ("Subtraction", subtract),
-        3: ("Multiplication", multiply),
-        4: ("Division", divide)
+        1: add,
+        2:  subtract,
+        3:  multiply,
+        4: divide
     }
     
     print("Enter two numbers:")
@@ -26,13 +26,16 @@ def calculator():
     num2 = float(input("Second number: "))
     
     print("\nChoose an operation:")
-    for key, (name, _) in operations.items():
-        print(f"{key}) {name}")
+    print('1.addition')
+    print('1.subtraction')
+    print('1.multiplication')
+    print('1.division')
+
     
     choice = int(input("Enter your choice: "))
     
     if choice in operations:
-        operation_name, operation_function = operations[choice]
+        operation_function = operations[choice]
         result = operation_function(num1, num2)
     else:
         result = "Invalid choice!"
